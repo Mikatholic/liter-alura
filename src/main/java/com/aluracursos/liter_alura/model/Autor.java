@@ -17,6 +17,8 @@ public class Autor {
     @OneToMany(mappedBy = "autor", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Libro> libros;
 
+    public Autor() {}
+
     public Autor(DatosAutor datosAutor) {
         this.nombre = datosAutor.nombre();
         this.fechaDeNacimiento = datosAutor.fechaDeNacimiento();
@@ -29,20 +31,20 @@ public class Autor {
                 (fechaDeFallecimiento != null ? fechaDeFallecimiento : "Presente") + ")";
     }
 
-    public Integer getFechaDeNacimiento() {
+    public Integer getfechaDeNacimiento() {
         return fechaDeNacimiento;
     }
 
-    public void setFechaDeNacimiento(Integer fechaDeNacimiento) {
+    public void setfechaDeNacimiento(Integer fechaDeNacimiento) {
         this.fechaDeNacimiento = fechaDeNacimiento;
     }
 
-    public Integer getGetFechaDeFallecimiento() {
+    public Integer getfechaDeFallecimiento() {
         return fechaDeFallecimiento;
     }
 
-    public void setGetFechaDeFallecimiento(Integer getFechaDeFallecimiento) {
-        this.fechaDeFallecimiento = getFechaDeFallecimiento;
+    public void setfechaDeFallecimiento(Integer getfechaDeFallecimiento) {
+        this.fechaDeFallecimiento = getfechaDeFallecimiento;
     }
 
     public Long getId() {
