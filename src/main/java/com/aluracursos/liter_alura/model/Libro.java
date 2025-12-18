@@ -13,7 +13,8 @@ public class Libro {
     private String idioma;
     private Double numeroDeDescargas;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "autor_id")
     private Autor autor;
 
     public Libro() {}
