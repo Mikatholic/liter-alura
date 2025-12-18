@@ -16,6 +16,13 @@ public class Libro {
     @ManyToOne
     private Autor autor;
 
+    public Libro(DatosLibro datosLibro) {
+        this.titulo = datosLibro.titulo();
+        this.numeroDeDescargas = datosLibro.numeroDeDescargas();
+        this.idioma = datosLibro.idiomas() != null && !datosLibro.idiomas().isEmpty()
+                ? datosLibro.idiomas().get(0) : "Desconocido";
+    }
+
     public Autor getAutor() {
         return autor;
     }
