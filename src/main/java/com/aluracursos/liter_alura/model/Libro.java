@@ -16,11 +16,27 @@ public class Libro {
     @ManyToOne
     private Autor autor;
 
+    public Libro() {}
+
     public Libro(DatosLibro datosLibro) {
         this.titulo = datosLibro.titulo();
         this.numeroDeDescargas = datosLibro.numeroDeDescargas();
         this.idioma = datosLibro.idiomas() != null && !datosLibro.idiomas().isEmpty()
                 ? datosLibro.idiomas().get(0) : "Desconocido";
+
+        if (datosLibro.autor() != null && !datosLibro.autor().isEmpty()) {
+            this.autor = new Autor(datosLibro.autor().get(0));
+        }
+    }
+
+    @Override
+    public  String toString(){
+        return "---------------- Libro ----------------" + "\n" +
+                "Título: " + titulo + "\n" +
+                "Autor: " + (autor != null ? autor.getNombre() : "Desconocido") + "\n" +
+                "Idioma: " + idioma + "\n" +
+                "Número de descargas: " + numeroDeDescargas + "\n" +
+                "---------------------------------------" + "\n";
     }
 
     public Autor getAutor() {
